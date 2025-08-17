@@ -1,6 +1,6 @@
 # System Utility Frontend
 
-This project is a **Node-based backend** that provides system utility storing and manupulation by fetching real-time data from the Daemon service.
+This project is a **Node-based backend** that provides system utility data to backend.
 
 ---
 
@@ -19,7 +19,7 @@ This project is a **Node-based backend** that provides system utility storing an
 
 ## Overview
 
-The System Utility Daemonsigned to collect genreal information about the system;
+The System Utility Daemon is used to collect genreal information about the system;
 
 - Disk Encryption status
 - OS Update availability
@@ -38,7 +38,7 @@ This project is a Node.js backend providing system utils data to backend
 
 - The structure is modular, with clear separation of concerns for utilities, services,jobs,daemon start/stop configuration, ENV and Consts.
 - Utilize very minimal resources of the system.
-- Well defined and structured code
+- Well defined and structured code.
 - Proper error handling and crash support with exit signals registration handled by using stopDaemon.js.
 - Proper Authentication.
 
