@@ -1,0 +1,13 @@
+[Unit]
+Description=My Node.js Daemon App
+After=network.target
+
+[Service]
+ExecStart=<node address> <index.js address>
+
+WorkingDirectory=<address of current file>
+Restart=always
+User=<USER_NAME>
+
+[Install]
+WantedBy=multi-user.target
