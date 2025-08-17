@@ -1,0 +1,59 @@
+.utilityTableWrapper {
+    width: 100%;
+    overflow-x: auto; /* enables horizontal scroll on small screens */
+}
+
+.utilityTable {
+    width: 100%;
+    margin-top: 8vh;
+    font-size: 20px;
+    border-collapse: collapse;
+    color: white;
+    min-width: 600px; /* ensures table doesn’t shrink too much */
+}
+
+.utilityTable th, 
+.utilityTable td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    white-space: nowrap; /* prevents text from breaking awkwardly */
+}
+
+.utilityTable th {
+    padding-bottom: 21px;
+    background-color: rgba(255, 255, 255, 0.05);
+    font-weight: bold;
+}
+
+.utilityTable tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ✅ Responsive adjustments */
+@media (max-width: 1024px) {
+    .utilityTable {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .utilityTable {
+        font-size: 16px;
+    }
+    .utilityTable th, 
+    .utilityTable td {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .utilityTable {
+        font-size: 14px;
+    }
+    .utilityTable th, 
+    .utilityTable td {
+        padding: 6px;
+    }
+}
