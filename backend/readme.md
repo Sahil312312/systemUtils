@@ -13,9 +13,6 @@ This project is a **Node-based backend** that provides system utility storing an
 - [Dependencies](#dependencies)
 - [Installation](#installation)
 - [API Endpoints](#api-endpoints)
-- [Technologies Used](#technologies-used)
-- [Improvent Scope](#improvement-scope)
-
 ---
 
 ## Overview
@@ -232,11 +229,5 @@ backend/
 
 ---
 
-## Technologies Used
-
-- NodeJs (Vite) -- Backend framework
-- Tailwind CSS -- Styling - Axios / Fetch API -- API communication - React Router DOM -- Navigation this is my fromt end readme.md file learn from this i will give you all info then write similar for my back end
-
-```
 
 ```
