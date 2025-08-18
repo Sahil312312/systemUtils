@@ -10,6 +10,7 @@ const GetUtilityInfo = () => {
   const [currPage, setCurrPage] = useState(1);
   const limit = 10;
   const [totalPages, setTotalPage] = useState();
+  const [query, setQuery] = useState({});
 
   const [selectedChecks, setSelectedChecks] = useState({
     checkAntivirus: false,
@@ -51,10 +52,6 @@ const GetUtilityInfo = () => {
       queryObj.filter[filter.field] = String(filter.value.trim()).toLowerCase();
     }
 
-    // console.log("Query Object: ", queryObj);
-
-    // send query object
-    // let resp = await getRequest(queryObj);  // if GET, need query string
     fetchData(queryObj);
   };
 
@@ -63,7 +60,8 @@ const GetUtilityInfo = () => {
       queryObj.page = newPage;
       queryObj.limit = limit;
       const resp = await postRequest(queryObj);
-      // console.log(resp)
+      console.log(resp);
+      setQuery(queryObj);
       setData(resp.data);
       setTotalPage(resp.pagination.totalPages);
       setCurrPage(resp.pagination.page);
@@ -73,8 +71,9 @@ const GetUtilityInfo = () => {
   };
 
   const onPageChange = (newPage) => {
-    return fetchData({}, newPage);
+    return fetchData(query, newPage);
   };
+
   return (
     <div className="utilityPage">
       <h1 className="utilityPageHeader">Utility Infomation Of System 🥋</h1>
@@ -87,6 +86,7 @@ const GetUtilityInfo = () => {
         filter={filter}
         setFilter={setFilter}
         handleSubmit={handleFilterChange}
+        setQuery={setQuery}
       />
 
       <UtilityTable data={data} />
