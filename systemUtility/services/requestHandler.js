@@ -7,9 +7,9 @@ const { log } = require("console");
 
 async function sendSystemData() {
   let newSystemData = await apiObj();
-  newSystemData = { ...newSystemData, timeStamp: new Date().toISOString() };
 
   if (!hasChanged(newSystemData)) return;
+  newSystemData = { ...newSystemData, timeStamp: new Date().toISOString() };
 
   const data = JSON.stringify(newSystemData);
   const url = new URL(API_URL);
