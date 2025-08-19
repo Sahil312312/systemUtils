@@ -8,8 +8,8 @@ const { log } = require("console");
 async function sendSystemData() {
   let newSystemData = await apiObj();
 
-  if (!hasChanged(newSystemData)) return;
   newSystemData = { ...newSystemData, timeStamp: new Date().toISOString() };
+  if (!hasChanged(newSystemData)) return;
 
   const data = JSON.stringify(newSystemData);
   const url = new URL(API_URL);
@@ -26,12 +26,12 @@ async function sendSystemData() {
     },
   };
 
-  console.log(options);
+  // console.log(options);
 
   return new Promise((resolve, reject) => {
     const req = http.request(options, (res) => {
       let body = "";
-      console.log(res);
+      // console.log(res);
       res.on("data", (chunks) => (body += chunks));
 
       res.on("end", () => {
@@ -49,7 +49,11 @@ async function sendSystemData() {
     });
 
     // req.setTimeout(5000);
-    req.on("error", reject);
+    req.on("error", () => {
+      req.destroy();
+      reject(new Error("Error from backend while processing  request"));
+      stopDeamon();
+    });
     req.on("timeout", () => {
       req.destroy();
       reject(new Error("Request timeout"));
